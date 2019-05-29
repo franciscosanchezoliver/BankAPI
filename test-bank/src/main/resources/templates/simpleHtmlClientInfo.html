@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+</head>
+<body>
+
+		<h1 th:text="${client.name}" class="text-center"></h1>
+	
+		<h2>Client data</h2>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Balance</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td th:text="${client.id}"></td>
+					<td th:text="${client.name}"></td>
+					<td th:text="${client.getBalance()}"></td>
+				<tr>
+			</tbody>
+		</table>
+		
+		<h2>Accounts</h2>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Description</th>
+					<th>Number</th>
+					<th>Balance</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="account : ${client.accounts}">
+					<td th:text="${account.name}"></td>
+					<td th:text="${account.id}"></td>
+					<td th:text="${account.money}"></td>
+				</tr>
+			</tbody>
+		</table>
+		
+
+
+</body>
+</html>

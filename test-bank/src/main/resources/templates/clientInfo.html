@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Account info</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<div class="container-flex">
+		<h1 th:text="${client.name}" class="text-center"></h1>
+	
+		<h2>Client data</h2>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Balance</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td th:text="${client.id}"></td>
+					<td th:text="${client.name}"></td>
+					<td th:text="${client.getBalance()}"></td>
+				<tr>
+			</tbody>
+		</table>
+		
+		<h2>Accounts</h2>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Description</th>
+					<th>Number</th>
+					<th>Balance</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="account : ${client.accounts}">
+					<td th:text="${account.name}"></td>
+					<td th:text="${account.id}"></td>
+					<td th:text="${account.money}"></td>
+				</tr>
+			</tbody>
+		</table>
+		
+	</div>
+
+
+</body>
+</html>
